@@ -1,0 +1,11 @@
+// cl-encoding-leb128-byte0-stage-25: Test Suite
+import "../leb_25.zk"
+
+fn test_run():
+    res := leb128_byte0_25(375)
+    if res != 247: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-encoding-leb128-byte0-stage-25!")

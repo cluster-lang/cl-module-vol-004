@@ -1,0 +1,13 @@
+// cl-ease-out-cubic: Test Suite
+import "../e_out_c.zk"
+
+fn test_e_out_c():
+    res := ease_out_cubic(0.5)
+    diff := res - 0.875
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_e_out_c passed")
+
+fn main():
+    test_e_out_c()
+    print("✓ All tests passed for cl-ease-out-cubic!")

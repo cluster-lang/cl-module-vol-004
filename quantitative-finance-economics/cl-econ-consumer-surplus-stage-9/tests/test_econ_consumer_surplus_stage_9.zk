@@ -1,0 +1,13 @@
+// cl-econ-consumer-surplus-stage-9: Test Suite
+import "../con_sr_9.zk"
+
+fn test_run():
+    res := consumer_surplus_9(50.0, 30.0, 100.0)
+    diff := res - 9000.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-econ-consumer-surplus-stage-9!")

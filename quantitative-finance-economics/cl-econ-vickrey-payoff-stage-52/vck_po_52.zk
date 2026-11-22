@@ -1,0 +1,7 @@
+// cl-econ-vickrey-payoff-stage-52: Vickrey Second-Price Auction Surplus Stage 52
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vickrey_surplus_52(valuation: float, second_bid: float) -> float:
+    if valuation < second_bid: return 0.0
+    return (valuation - second_bid) * 52.0

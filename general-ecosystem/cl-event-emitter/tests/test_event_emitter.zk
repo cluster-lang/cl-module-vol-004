@@ -1,0 +1,14 @@
+// cl-event-emitter: Test Suite
+import "../event_emitter.zk"
+
+fn test_ee():
+    ee := ee_new(5)
+    ee_emit(ee, 2)
+    ee_emit(ee, 2)
+    if ee_count(ee, 2) != 2: sys_exit(1)
+    if ee_count(ee, 0) != 0: sys_exit(1)
+    print("test_ee passed: event dispatching verified")
+
+fn main():
+    test_ee()
+    print("✓ All tests passed for cl-event-emitter!")

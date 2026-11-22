@@ -1,0 +1,10 @@
+// cl-dsp-saturator-hard-clip: DSP Hard Clipping with Symmetry Threshold
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn saturate_hard_clip(x: float, threshold: float) -> float:
+    th := threshold
+    if th < 0.0: th = 0.0 - th
+    if x > th: return th
+    if x < (0.0 - th): return 0.0 - th
+    return x

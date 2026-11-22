@@ -1,0 +1,8 @@
+// cl-ease-clamp-unit: Unit Range Easing Parameter Clamper
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ease_clamp(t: float) -> float:
+    if t < 0.0: return 0.0
+    if t > 1.0: return 1.0
+    return t

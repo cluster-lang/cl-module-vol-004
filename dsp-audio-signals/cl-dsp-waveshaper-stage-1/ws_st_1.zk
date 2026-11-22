@@ -1,0 +1,6 @@
+// cl-dsp-waveshaper-stage-1: Non-Linear Waveshaping Saturation Stage 1
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn waveshaper_stage_1(x: float) -> float:
+    return x / (1.0 + 1.00 * x * x)

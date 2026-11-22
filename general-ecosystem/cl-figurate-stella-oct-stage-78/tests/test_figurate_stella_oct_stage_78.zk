@@ -1,0 +1,11 @@
+// cl-figurate-stella-oct-stage-78: Test Suite
+import "../st_oct_78.zk"
+
+fn test_run():
+    res := stella_octangula_78(7)
+    if res != 679: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-stella-oct-stage-78!")

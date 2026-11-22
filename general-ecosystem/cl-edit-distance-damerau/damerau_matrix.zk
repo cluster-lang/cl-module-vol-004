@@ -1,0 +1,57 @@
+// cl-edit-distance-damerau: Full Damerau-Levenshtein Matrix
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min_3(a: int, b: int, c: int) -> int:
+    m := a
+    if b < m: m = b
+    if c < m: m = c
+    return m
+
+fn damerau_matrix(s1: string, s2: string) -> int:
+    m := len(s1)
+    n := len(s2)
+    rows := m + 1
+    cols := n + 1
+    total := rows * cols
+
+    dp: vector[int] := []
+    idx := 0
+    while idx < total:
+        dp.push(0)
+        idx = idx + 1
+
+    i := 0
+    while i <= m:
+        dp[i * cols] = i
+        i = i + 1
+
+    j := 0
+    while j <= n:
+        dp[j] = j
+        j = j + 1
+
+    i = 1
+    while i <= m:
+        j = 1
+        while j <= n:
+            cost := 1
+            if byte_at(s1, i - 1) == byte_at(s2, j - 1):
+                cost = 0
+            del_op := dp[((i - 1) * cols) + j] + 1
+            ins_op := dp[(i * cols) + (j - 1)] + 1
+            sub_op := dp[((i - 1) * cols) + (j - 1)] + cost
+            best := min_3(del_op, ins_op, sub_op)
+
+            if i > 1:
+                if j > 1:
+                    if byte_at(s1, i - 1) == byte_at(s2, j - 2):
+                        if byte_at(s1, i - 2) == byte_at(s2, j - 1):
+                            trans_op := dp[((i - 2) * cols) + (j - 2)] + 1
+                            if trans_op < best:
+                                best = trans_op
+
+            dp[(i * cols) + j] = best
+            j = j + 1
+        i = i + 1
+    return dp[(m * cols) + n]

@@ -1,0 +1,11 @@
+// cl-ecc-hamming-8-4-extended-stage-48: Test Suite
+import "../ecc_hm_48.zk"
+
+fn test_run():
+    res := hamming_parity_48(11)
+    if res != 49: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ecc-hamming-8-4-extended-stage-48!")

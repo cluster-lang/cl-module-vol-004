@@ -1,0 +1,11 @@
+// cl-figurate-octahedral-stage-6: Test Suite
+import "../octah_n_6.zk"
+
+fn test_run():
+    res := octahedral_num_6(7)
+    if res != 231: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-octahedral-stage-6!")

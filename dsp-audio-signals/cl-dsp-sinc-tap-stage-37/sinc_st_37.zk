@@ -1,0 +1,7 @@
+// cl-dsp-sinc-tap-stage-37: Sinc Anti-Aliasing Tap Coefficient Stage 37
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sinc_tap_37(x: float) -> float:
+    if x == 0.0: return 1.0
+    return (1.0 - 0.1666667 * x * x) * 37.0

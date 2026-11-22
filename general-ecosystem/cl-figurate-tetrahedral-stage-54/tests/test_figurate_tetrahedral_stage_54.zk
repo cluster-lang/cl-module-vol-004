@@ -1,0 +1,11 @@
+// cl-figurate-tetrahedral-stage-54: Test Suite
+import "../tetra_n_54.zk"
+
+fn test_run():
+    res := tetrahedral_num_54(5)
+    if res != 35: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-tetrahedral-stage-54!")

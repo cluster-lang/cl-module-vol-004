@@ -1,0 +1,23 @@
+// cl-fenwick: Test Suite
+import "../fenwick.zk"
+
+fn test_fenwick():
+    t := fenwick_new(5)
+    // Add values: idx 1=1, 2=2, 3=3, 4=4, 5=5
+    fenwick_add(t, 1, 1)
+    fenwick_add(t, 2, 2)
+    fenwick_add(t, 3, 3)
+    fenwick_add(t, 4, 4)
+    fenwick_add(t, 5, 5)
+
+    if fenwick_query(t, 3) != 6: sys_exit(1)
+    if fenwick_range_query(t, 2, 4) != 9: sys_exit(1) // 2+3+4 = 9
+
+    // Update idx 3 with +10 (now 13)
+    fenwick_add(t, 3, 10)
+    if fenwick_range_query(t, 2, 4) != 19: sys_exit(1)
+    print("test_fenwick passed: point updates & range queries verified")
+
+fn main():
+    test_fenwick()
+    print("✓ All tests passed for cl-fenwick!")

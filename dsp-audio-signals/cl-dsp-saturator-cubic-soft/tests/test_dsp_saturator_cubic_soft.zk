@@ -1,0 +1,11 @@
+// cl-dsp-saturator-cubic-soft: Test Suite
+import "../cub_sat.zk"
+
+fn test_sat():
+    if saturate_cubic(2.0) != 1.0: sys_exit(1)
+    if saturate_cubic(0.0) != 0.0: sys_exit(1)
+    print("test_sat passed")
+
+fn main():
+    test_sat()
+    print("✓ All tests passed for cl-dsp-saturator-cubic-soft!")

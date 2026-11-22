@@ -1,0 +1,13 @@
+// cl-fea-beam-bending-moment-stage-71: Test Suite
+import "../fe_bm_71.zk"
+
+fn test_run():
+    res := beam_moment_71(200.0, 0.005, 0.02)
+    diff := res - 1.4200
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-fea-beam-bending-moment-stage-71!")

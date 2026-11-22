@@ -1,0 +1,11 @@
+// cl-figurate-star-stage-42: Test Suite
+import "../star_num_42.zk"
+
+fn test_run():
+    res := star_number_42(3)
+    if res != 37: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-star-stage-42!")

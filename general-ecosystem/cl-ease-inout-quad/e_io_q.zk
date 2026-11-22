@@ -1,0 +1,8 @@
+// cl-ease-inout-quad: Piecewise S-curve Quadratic Ease In-Out
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ease_inout_quad(t: float) -> float:
+    if t < 0.5:
+        return 2.0 * t * t
+    return (0.0 - 1.0) + (4.0 - 2.0 * t) * t

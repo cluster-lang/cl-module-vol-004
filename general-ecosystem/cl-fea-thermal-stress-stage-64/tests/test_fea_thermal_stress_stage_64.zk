@@ -1,0 +1,13 @@
+// cl-fea-thermal-stress-stage-64: Test Suite
+import "../fe_ts_64.zk"
+
+fn test_run():
+    res := thermal_stress_64(200.0, 0.000012, 50.0)
+    diff := res - 7.6800
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-fea-thermal-stress-stage-64!")

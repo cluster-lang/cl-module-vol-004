@@ -1,0 +1,11 @@
+// cl-ecc-bch-syndrome-stage-20: Test Suite
+import "../ecc_bc_20.zk"
+
+fn test_run():
+    res := bch_syndrome_20(1, 0, 1)
+    if res != 20: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ecc-bch-syndrome-stage-20!")

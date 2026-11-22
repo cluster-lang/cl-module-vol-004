@@ -1,0 +1,6 @@
+// cl-fin-ema-weight-stage-10: Exponential Moving Average Smoothing Stage 10
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ema_step_10(curr: float, prev_ema: float) -> float:
+    return 0.2000 * curr + (1.0 - 0.2000) * prev_ema

@@ -1,0 +1,11 @@
+// cl-ecc-reed-solomon-poly-mul-stage-42: Test Suite
+import "../ecc_rs_42.zk"
+
+fn test_run():
+    res := rs_xtime_42(142)
+    if res != 49: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ecc-reed-solomon-poly-mul-stage-42!")

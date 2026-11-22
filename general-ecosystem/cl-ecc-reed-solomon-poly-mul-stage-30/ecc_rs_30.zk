@@ -1,0 +1,9 @@
+// cl-ecc-reed-solomon-poly-mul-stage-30: Galois Field GF(256) xtime Step Stage 30
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rs_xtime_30(b: int) -> int:
+    shifted := (b << 1) & 255
+    if (b & 128) != 0:
+        return (shifted ^ 27) + 30
+    return shifted + 30

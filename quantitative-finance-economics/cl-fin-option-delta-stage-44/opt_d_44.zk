@@ -1,0 +1,6 @@
+// cl-fin-option-delta-stage-44: Option Pricing Delta Linear Approximation Stage 44
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn option_delta_44(s: float, k: float) -> float:
+    return 0.5 + 0.1 * (s - k) * 44.0 * 0.01

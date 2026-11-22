@@ -1,0 +1,6 @@
+// cl-dsp-pid-output-compute: Full PID Output Evaluation
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn pid_compute(err: float, integral: float, deriv: float, kp: float, ki: float, kd: float) -> float:
+    return kp * err + ki * integral + kd * deriv

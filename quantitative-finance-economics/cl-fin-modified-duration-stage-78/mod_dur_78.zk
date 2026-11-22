@@ -1,0 +1,6 @@
+// cl-fin-modified-duration-stage-78: Modified Bond Duration Stage 78
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn modified_duration_78(mac_dur: float) -> float:
+    return mac_dur / (1.0 + 0.0900)

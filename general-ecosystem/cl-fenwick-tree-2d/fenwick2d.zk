@@ -1,0 +1,26 @@
+// cl-fenwick-tree-2d: 2D Fenwick Tree Point Update & Prefix Query
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// Flat matrix: size max_n x max_n (1-indexed up to max_n)
+fn fenwick2d_add(tree: vector[int], max_n: int, r: int, c: int, val: int):
+    i := r
+    while i <= max_n:
+        j := c
+        while j <= max_n:
+            idx := (i * (max_n + 1)) + j
+            tree[idx] = tree[idx] + val
+            j = j + (j & -j)
+        i = i + (i & -i)
+
+fn fenwick2d_query(tree: vector[int], max_n: int, r: int, c: int) -> int:
+    sum := 0
+    i := r
+    while i > 0:
+        j := c
+        while j > 0:
+            idx := (i * (max_n + 1)) + j
+            sum = sum + tree[idx]
+            j = j - (j & -j)
+        i = i - (i & -i)
+    return sum

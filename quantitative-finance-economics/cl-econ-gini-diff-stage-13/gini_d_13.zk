@@ -1,0 +1,8 @@
+// cl-econ-gini-diff-stage-13: Gini Absolute Wealth Difference Stage 13
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn gini_diff_13(x: float, y: float) -> float:
+    d := x - y
+    if d < 0.0: d = 0.0 - d
+    return d * 13.0

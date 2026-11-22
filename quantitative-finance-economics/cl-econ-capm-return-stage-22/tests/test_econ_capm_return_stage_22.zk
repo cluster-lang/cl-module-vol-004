@@ -1,0 +1,13 @@
+// cl-econ-capm-return-stage-22: Test Suite
+import "../capm_r_22.zk"
+
+fn test_run():
+    res := capm_return_22(0.03, 0.11)
+    diff := res - 0.0876
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-econ-capm-return-stage-22!")

@@ -1,0 +1,6 @@
+// cl-fastapi Package Manifest
+name := "cl-fastapi"
+version := "0.1.0"
+description := "Modern High-Performance Web Routing & API Dispatcher (Python FastAPI parity)"
+main := "fastapi.zk"
+license := "MIT"

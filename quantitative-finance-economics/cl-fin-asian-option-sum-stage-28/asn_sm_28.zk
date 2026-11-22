@@ -1,0 +1,6 @@
+// cl-fin-asian-option-sum-stage-28: Asian Option Arithmetic Price Accumulator Stage 28
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn asian_price_sum_28(acc_sum: float, s_new: float) -> float:
+    return (acc_sum + s_new) * 28.0

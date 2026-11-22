@@ -1,0 +1,8 @@
+// cl-dsp-vibrato-phase-inc: Vibrato Frequency Modulation Phase Increment
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn dsp_vibrato_inc(base_freq: float, lfo: float, depth_semitones: float, sample_rate: float) -> float:
+    if sample_rate <= 0.0001: return 0.0
+    freq_offset := base_freq * lfo * depth_semitones * 0.059463
+    return (base_freq + freq_offset) / sample_rate

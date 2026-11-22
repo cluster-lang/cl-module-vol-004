@@ -1,0 +1,6 @@
+// cl-fin-ema-weight-stage-18: Exponential Moving Average Smoothing Stage 18
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ema_step_18(curr: float, prev_ema: float) -> float:
+    return 0.3600 * curr + (1.0 - 0.3600) * prev_ema

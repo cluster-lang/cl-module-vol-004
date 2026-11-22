@@ -1,0 +1,11 @@
+// cl-endian-swap-u16: Test Suite
+import "../swap_u16.zk"
+
+fn test_run():
+    res := swap_u16(4660)
+    if res != 13330: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-endian-swap-u16!")

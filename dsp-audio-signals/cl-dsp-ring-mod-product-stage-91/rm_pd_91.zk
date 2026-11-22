@@ -1,0 +1,6 @@
+// cl-dsp-ring-mod-product-stage-91: Ring Modulator Signal Multiplier Stage 91
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ring_mod_prod_91(audio_in: float, carrier: float) -> float:
+    return audio_in * carrier * 91.0

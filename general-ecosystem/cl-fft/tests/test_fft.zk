@@ -1,0 +1,94 @@
+// cl-fft: Test Suite
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+import "../fft.zk"
+
+fn approx_eq(a: float, b: float) -> bool:
+    diff := a - b
+    if diff < 0.0:
+        diff = -diff
+    return diff < 0.01
+
+fn test_complex_math():
+    c1 := complex_new(1.0, 2.0)
+    c2 := complex_new(3.0, 4.0)
+
+    add := complex_add(c1, c2)
+    assert approx_eq(add.re, 4.0), "add real must be 4.0"
+    assert approx_eq(add.im, 6.0), "add imag must be 6.0"
+
+    sub := complex_sub(c1, c2)
+    assert approx_eq(sub.re, -2.0), "sub real must be -2.0"
+    assert approx_eq(sub.im, -2.0), "sub imag must be -2.0"
+
+    mul := complex_mul(c1, c2)
+    assert approx_eq(mul.re, -5.0), "mul real must be -5.0"
+    assert approx_eq(mul.im, 10.0), "mul imag must be 10.0"
+
+    c_34 := complex_new(3.0, 4.0)
+    assert approx_eq(complex_mag(c_34), 5.0), "magnitude must be 5.0"
+
+    print("test_complex_math passed")
+
+fn test_fft_dc_and_roundtrip():
+    // 8-sample DC signal: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    signal: vector[float] := []
+    signal.push(1.0)
+    signal.push(1.0)
+    signal.push(1.0)
+    signal.push(1.0)
+    signal.push(1.0)
+    signal.push(1.0)
+    signal.push(1.0)
+    signal.push(1.0)
+
+    res := fft_forward(signal)
+
+    // DC bin (bin 0) must hold all energy (sum = 8.0)
+    assert approx_eq(res.magnitudes[0], 8.0), "DC magnitude must be 8.0"
+
+    // High-frequency bins must be zero
+    assert approx_eq(res.magnitudes[1], 0.0), "bin 1 must be 0"
+    assert approx_eq(res.magnitudes[2], 0.0), "bin 2 must be 0"
+    assert approx_eq(res.magnitudes[4], 0.0), "bin 4 must be 0"
+
+    // Reconstruct signal via inverse FFT
+    reconstructed := fft_inverse(res)
+    assert reconstructed.len() == 8, "reconstructed length must be 8"
+
+    i := 0
+    while i < 8:
+        assert approx_eq(reconstructed[i], 1.0), "reconstructed value must match original"
+        i = i + 1
+
+    print("test_fft_dc_and_roundtrip passed: perfect signal reconstruction verified")
+
+fn test_fft_impulse():
+    // Dirac delta impulse: [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    impulse: vector[float] := []
+    impulse.push(1.0)
+    impulse.push(0.0)
+    impulse.push(0.0)
+    impulse.push(0.0)
+    impulse.push(0.0)
+    impulse.push(0.0)
+    impulse.push(0.0)
+    impulse.push(0.0)
+
+    res := fft_forward(impulse)
+
+    // Delta function has flat power spectrum (all bins equal 1.0)
+    i := 0
+    while i < 8:
+        assert approx_eq(res.magnitudes[i], 1.0), "impulse frequency response must be flat 1.0"
+        i = i + 1
+
+    print("test_fft_impulse passed: Dirac impulse response verified")
+
+fn main():
+    print("Testing cl-fft (Pure Cluster Cooley-Tukey Radix-2 FFT)...")
+    test_complex_math()
+    test_fft_dc_and_roundtrip()
+    test_fft_impulse()
+    print("✓ All tests passed for cl-fft!")

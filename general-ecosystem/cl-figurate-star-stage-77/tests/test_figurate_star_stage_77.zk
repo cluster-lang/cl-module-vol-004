@@ -1,0 +1,11 @@
+// cl-figurate-star-stage-77: Test Suite
+import "../star_num_77.zk"
+
+fn test_run():
+    res := star_number_77(8)
+    if res != 337: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-star-stage-77!")

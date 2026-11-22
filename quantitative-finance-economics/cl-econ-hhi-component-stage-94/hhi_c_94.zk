@@ -1,0 +1,6 @@
+// cl-econ-hhi-component-stage-94: HHI Market Concentration Component Stage 94
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn hhi_share_sq_94(pct_share: float) -> float:
+    return pct_share * pct_share * 94.0

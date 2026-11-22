@@ -1,0 +1,7 @@
+// cl-dsp-pitch-semitones-to-ratio: DSP Semitone Offset to Frequency Ratio Approx
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn semitones_to_ratio(semis: float) -> float:
+    // 2^(n/12) approx: 1 + n * 0.059463
+    return 1.0 + semis * 0.059463

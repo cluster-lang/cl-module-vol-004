@@ -1,0 +1,11 @@
+// cl-ease-step-threshold: Test Suite
+import "../e_step.zk"
+
+fn test_e_step():
+    if ease_step(0.5, 0.2) != 0.0: sys_exit(1)
+    if ease_step(0.5, 0.8) != 1.0: sys_exit(1)
+    print("test_e_step passed")
+
+fn main():
+    test_e_step()
+    print("✓ All tests passed for cl-ease-step-threshold!")

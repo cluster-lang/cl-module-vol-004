@@ -1,0 +1,6 @@
+// cl-filter-comb-feedforward-stage-94: Comb Filter Feedforward Tap Stage 94
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn comb_feedforward_94(x_curr: float, x_delayed: float, alpha: float) -> float:
+    return (x_curr + alpha * x_delayed) * 94.0

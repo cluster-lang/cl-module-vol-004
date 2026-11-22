@@ -1,0 +1,13 @@
+// cl-dsp-slew-rate-step: Test Suite
+import "../dsp_slew.zk"
+
+fn test_dsp_slew():
+    res := dsp_slew_rate(0.0, 10.0, 2.0)
+    diff := res - 2.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_dsp_slew passed")
+
+fn main():
+    test_dsp_slew()
+    print("✓ All tests passed for cl-dsp-slew-rate-step!")

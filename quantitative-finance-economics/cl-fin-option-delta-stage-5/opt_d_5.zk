@@ -1,0 +1,6 @@
+// cl-fin-option-delta-stage-5: Option Pricing Delta Linear Approximation Stage 5
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn option_delta_5(s: float, k: float) -> float:
+    return 0.5 + 0.1 * (s - k) * 5.0 * 0.01

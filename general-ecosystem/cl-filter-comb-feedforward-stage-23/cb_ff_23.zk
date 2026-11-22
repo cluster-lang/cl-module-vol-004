@@ -1,0 +1,6 @@
+// cl-filter-comb-feedforward-stage-23: Comb Filter Feedforward Tap Stage 23
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn comb_feedforward_23(x_curr: float, x_delayed: float, alpha: float) -> float:
+    return (x_curr + alpha * x_delayed) * 23.0

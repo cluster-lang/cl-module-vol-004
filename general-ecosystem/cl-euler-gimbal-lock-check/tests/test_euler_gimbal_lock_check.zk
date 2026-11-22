@@ -1,0 +1,11 @@
+// cl-euler-gimbal-lock-check: Test Suite
+import "../e_glock.zk"
+
+fn test_run():
+    res := is_gimbal_lock(0.99999, 0.001)
+    if res != 1: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-euler-gimbal-lock-check!")

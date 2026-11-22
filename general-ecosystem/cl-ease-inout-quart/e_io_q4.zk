@@ -1,0 +1,9 @@
+// cl-ease-inout-quart: Piecewise Quartic In-Out S-curve
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ease_inout_quart(t: float) -> float:
+    if t < 0.5:
+        return 8.0 * t * t * t * t
+    tm := t - 1.0
+    return 1.0 - 8.0 * tm * tm * tm * tm

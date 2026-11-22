@@ -1,0 +1,7 @@
+// cl-fin-option-gamma-stage-69: Option Gamma Convexity Stage 69
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn option_gamma_69(spot: float, vol: float) -> float:
+    if spot <= 0.0001: return 0.0
+    return (0.4 / (spot * vol)) * 69.0

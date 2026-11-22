@@ -1,0 +1,9 @@
+// cl-ecc-reed-solomon-poly-mul-stage-43: Galois Field GF(256) xtime Step Stage 43
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rs_xtime_43(b: int) -> int:
+    shifted := (b << 1) & 255
+    if (b & 128) != 0:
+        return (shifted ^ 27) + 43
+    return shifted + 43

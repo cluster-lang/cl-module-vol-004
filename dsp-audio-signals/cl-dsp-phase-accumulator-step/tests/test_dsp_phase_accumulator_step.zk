@@ -1,0 +1,13 @@
+// cl-dsp-phase-accumulator-step: Test Suite
+import "../phase_acc.zk"
+
+fn test_phase():
+    res := phase_accumulate(0.9, 200.0, 1000.0) // inc = 0.2 -> 1.1 -> 0.1
+    diff := res - 0.1
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test_phase passed")
+
+fn main():
+    test_phase()
+    print("✓ All tests passed for cl-dsp-phase-accumulator-step!")

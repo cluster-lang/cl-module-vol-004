@@ -1,0 +1,13 @@
+// cl-dsp-ring-mod-product-stage-86: Test Suite
+import "../rm_pd_86.zk"
+
+fn test_run():
+    res := ring_mod_prod_86(0.8, 0.5)
+    diff := res - 34.4000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-dsp-ring-mod-product-stage-86!")

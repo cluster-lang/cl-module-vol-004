@@ -1,0 +1,6 @@
+// cl-ecc-bch-syndrome-stage-16: BCH Linear Code Syndrome Bit Stage 16
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn bch_syndrome_16(r0: int, r1: int, r2: int) -> int:
+    return (r0 ^ r1 ^ r2) + 16

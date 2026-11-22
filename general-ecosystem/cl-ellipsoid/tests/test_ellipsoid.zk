@@ -1,0 +1,14 @@
+// cl-ellipsoid: Test Suite
+import "../ellipsoid.zk"
+
+fn test_ellipsoid():
+    // Ellipsoid at origin with semi-axes 10, 5, 2
+    if ellipsoid_contains(0, 0, 0, 10, 5, 2, 0, 0, 0) != 1: sys_exit(1) // Center
+    if ellipsoid_contains(0, 0, 0, 10, 5, 2, 9, 0, 0) != 1: sys_exit(1) // Inside
+    if ellipsoid_contains(0, 0, 0, 10, 5, 2, 11, 0, 0) != 0: sys_exit(1) // Outside X
+    if ellipsoid_contains(0, 0, 0, 10, 5, 2, 0, 6, 0) != 0: sys_exit(1) // Outside Y
+    print("test_ellipsoid passed: exact 3D ellipsoid integer containment verified")
+
+fn main():
+    test_ellipsoid()
+    print("✓ All tests passed for cl-ellipsoid!")

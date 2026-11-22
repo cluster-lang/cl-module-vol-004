@@ -1,0 +1,6 @@
+// cl-dsp-notch-alpha-stage-91: Biquad Notch Filter Damping Stage 91
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn notch_alpha_91(sin_w0: float) -> float:
+    return (sin_w0 / (2.0 * 5.0500))

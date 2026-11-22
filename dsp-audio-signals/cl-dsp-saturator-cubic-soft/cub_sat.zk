@@ -1,0 +1,8 @@
+// cl-dsp-saturator-cubic-soft: DSP Cubic Soft Clipping Saturator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn saturate_cubic(x: float) -> float:
+    if x > 1.5: return 1.0
+    if x < (0.0 - 1.5): return 0.0 - 1.0
+    return x - (x * x * x) * 0.148148

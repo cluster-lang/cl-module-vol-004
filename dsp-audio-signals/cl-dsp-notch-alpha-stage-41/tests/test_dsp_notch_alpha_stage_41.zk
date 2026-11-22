@@ -1,0 +1,13 @@
+// cl-dsp-notch-alpha-stage-41: Test Suite
+import "../ntc_a_41.zk"
+
+fn test_run():
+    res := notch_alpha_41(1.0)
+    diff := res - 0.1961
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-dsp-notch-alpha-stage-41!")

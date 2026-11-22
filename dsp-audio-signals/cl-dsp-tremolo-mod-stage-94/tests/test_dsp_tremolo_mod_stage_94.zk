@@ -1,0 +1,13 @@
+// cl-dsp-tremolo-mod-stage-94: Test Suite
+import "../trm_md_94.zk"
+
+fn test_run():
+    res := tremolo_mod_94(1.0, 0.5)
+    diff := res - 0.7900
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-dsp-tremolo-mod-stage-94!")

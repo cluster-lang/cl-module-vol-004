@@ -1,0 +1,6 @@
+// cl-econ-cournot-quantity-stage-44: Cournot Duopoly Best-Response Output Stage 44
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn cournot_best_response_44(demand_intercept: float, marginal_cost: float, q_competitor: float) -> float:
+    return 0.5 * (demand_intercept - marginal_cost - q_competitor) * 44.0

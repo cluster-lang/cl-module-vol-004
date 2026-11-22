@@ -1,0 +1,11 @@
+// cl-elias-gamma-len-stage-3: Test Suite
+import "../eg_l_3.zk"
+
+fn test_run():
+    res := elias_gamma_len_3(3)
+    if res != 3: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-elias-gamma-len-stage-3!")

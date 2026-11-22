@@ -1,0 +1,6 @@
+// cl-fin-hull-white-drift-stage-3: Hull-White Short Rate Drift Stage 3
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn hull_white_drift_3(theta_t: float, a_param: float, r_curr: float) -> float:
+    return (theta_t - a_param * r_curr) * 3.0

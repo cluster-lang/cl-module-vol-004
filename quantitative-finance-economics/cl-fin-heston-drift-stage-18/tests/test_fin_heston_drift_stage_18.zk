@@ -1,0 +1,13 @@
+// cl-fin-heston-drift-stage-18: Test Suite
+import "../hst_df_18.zk"
+
+fn test_run():
+    res := heston_var_drift_18(2.0, 0.04, 0.03)
+    diff := res - 0.3600
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-fin-heston-drift-stage-18!")

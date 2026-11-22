@@ -1,0 +1,169 @@
+// cl-fft: Pure Cluster Cooley-Tukey Radix-2 Fast Fourier Transform
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+model Complex:
+    re: float
+    im: float
+
+fn fft_sqrt(x: float) -> float:
+    if x <= 0.0:
+        return 0.0
+    guess := x
+    i := 0
+    while i < 15:
+        guess = 0.5 * (guess + (x / guess))
+        i = i + 1
+    return guess
+
+fn fft_sin(x: float) -> float:
+    pi := 3.141592653589793
+    two_pi := 6.283185307179586
+    rad := x
+    while rad > pi:
+        rad = rad - two_pi
+    while rad < -pi:
+        rad = rad + two_pi
+    r3 := (rad * rad * rad) / 6.0
+    r5 := (rad * rad * rad * rad * rad) / 120.0
+    r7 := (rad * rad * rad * rad * rad * rad * rad) / 5040.0
+    return rad - r3 + r5 - r7
+
+fn fft_cos(x: float) -> float:
+    pi := 3.141592653589793
+    two_pi := 6.283185307179586
+    rad := x
+    while rad > pi:
+        rad = rad - two_pi
+    while rad < -pi:
+        rad = rad + two_pi
+    r2 := (rad * rad) / 2.0
+    r4 := (rad * rad * rad * rad) / 24.0
+    r6 := (rad * rad * rad * rad * rad * rad) / 720.0
+    return 1.0 - r2 + r4 - r6
+
+fn complex_new(re: float, im: float) -> Complex:
+    return Complex(re, im)
+
+fn complex_add(a: Complex, b: Complex) -> Complex:
+    return Complex(a.re + b.re, a.im + b.im)
+
+fn complex_sub(a: Complex, b: Complex) -> Complex:
+    return Complex(a.re - b.re, a.im - b.im)
+
+fn complex_mul(a: Complex, b: Complex) -> Complex:
+    r := (a.re * b.re) - (a.im * b.im)
+    i := (a.re * b.im) + (a.im * b.re)
+    return Complex(r, i)
+
+fn complex_mag(c: Complex) -> float:
+    return fft_sqrt((c.re * c.re) + (c.im * c.im))
+
+model FFTResult:
+    real: vector[float]
+    imag: vector[float]
+    magnitudes: vector[float]
+
+fn fft_radix2(real: vector[float], imag: vector[float], invert: bool) -> FFTResult:
+    n := real.len()
+
+    // 1. Bit-reversal permutation
+    j := 0
+    i := 0
+    while i < n:
+        if i < j:
+            temp_r := real[i]
+            real[i] = real[j]
+            real[j] = temp_r
+
+            temp_i := imag[i]
+            imag[i] = imag[j]
+            imag[j] = temp_i
+
+        bit := n / 2
+        while bit > 0 and (j & bit) != 0:
+            j = j ^ bit
+            bit = bit / 2
+        j = j ^ bit
+        i = i + 1
+
+    // 2. Cooley-Tukey Butterfly computation
+    pi := 3.141592653589793
+    len_step := 2
+    while len_step <= n:
+        angle := (2.0 * pi) / (0.0 + len_step)
+        if not invert:
+            angle = -angle
+
+        wlen_re := fft_cos(angle)
+        wlen_im := fft_sin(angle)
+        wlen := Complex(wlen_re, wlen_im)
+
+        k := 0
+        while k < n:
+            w := Complex(1.0, 0.0)
+            half := len_step / 2
+            j_idx := 0
+            while j_idx < half:
+                idx_u := k + j_idx
+                idx_v := k + j_idx + half
+
+                u := Complex(real[idx_u], imag[idx_u])
+                v_orig := Complex(real[idx_v], imag[idx_v])
+                v := complex_mul(v_orig, w)
+
+                // u + v
+                real[idx_u] = u.re + v.re
+                imag[idx_u] = u.im + v.im
+
+                // u - v
+                real[idx_v] = u.re - v.re
+                imag[idx_v] = u.im - v.im
+
+                w = complex_mul(w, wlen)
+                j_idx = j_idx + 1
+
+            k = k + len_step
+        len_step = len_step * 2
+
+    // 3. Normalization if inverse
+    if invert:
+        inv_n := 1.0 / (0.0 + n)
+        ii := 0
+        while ii < n:
+            real[ii] = real[ii] * inv_n
+            imag[ii] = imag[ii] * inv_n
+            ii = ii + 1
+
+    // 4. Calculate magnitudes
+    mags: vector[float] := []
+    mi := 0
+    while mi < n:
+        c := Complex(real[mi], imag[mi])
+        mags.push(complex_mag(c))
+        mi = mi + 1
+
+    return FFTResult(real, imag, mags)
+
+fn fft_forward(input_real: vector[float]) -> FFTResult:
+    n := input_real.len()
+    r: vector[float] := []
+    im: vector[float] := []
+    i := 0
+    while i < n:
+        r.push(input_real[i])
+        im.push(0.0)
+        i = i + 1
+    return fft_radix2(r, im, false)
+
+fn fft_inverse(res: FFTResult) -> vector[float]:
+    n := res.real.len()
+    r: vector[float] := []
+    im: vector[float] := []
+    i := 0
+    while i < n:
+        r.push(res.real[i])
+        im.push(res.imag[i])
+        i = i + 1
+    inv_res := fft_radix2(r, im, true)
+    return inv_res.real

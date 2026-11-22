@@ -1,0 +1,12 @@
+// cl-dsp-quantize-1bit: DSP Uniform 1-Bit Signal Quantizer
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn quantize_1bit(sample: float) -> float:
+    // sample in [-1.0, 1.0]
+    s := sample
+    if s < -1.0: s = -1.0
+    if s > 1.0: s = 1.0
+    norm := (s + 1.0) * 0.5
+    q := float(int(norm * 1.0)) / 1.0
+    return q * 2.0 - 1.0

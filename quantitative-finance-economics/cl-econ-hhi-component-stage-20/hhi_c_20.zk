@@ -1,0 +1,6 @@
+// cl-econ-hhi-component-stage-20: HHI Market Concentration Component Stage 20
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn hhi_share_sq_20(pct_share: float) -> float:
+    return pct_share * pct_share * 20.0

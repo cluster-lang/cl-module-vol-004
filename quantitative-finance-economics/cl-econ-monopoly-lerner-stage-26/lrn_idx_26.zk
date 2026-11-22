@@ -1,0 +1,7 @@
+// cl-econ-monopoly-lerner-stage-26: Monopoly Lerner Index of Market Power Stage 26
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lerner_index_26(price: float, marginal_cost: float) -> float:
+    if price <= 0.0001: return 0.0
+    return ((price - marginal_cost) / price) * 26.0

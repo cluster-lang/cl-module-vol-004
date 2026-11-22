@@ -1,0 +1,11 @@
+// cl-endian-swap-u32: 32-Bit Endianness Byte Swap (htonl/ntohl)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn swap_u32(val: int) -> int:
+    mask32 := 4294967295
+    b0 := (val & 255) << 24
+    b1 := (val & 65280) << 8
+    b2 := (val >> 8) & 65280
+    b3 := (val >> 24) & 255
+    return (b0 | b1 | b2 | b3) & mask32

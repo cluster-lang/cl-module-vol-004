@@ -1,0 +1,11 @@
+// cl-elias-gamma-len-stage-39: Test Suite
+import "../eg_l_39.zk"
+
+fn test_run():
+    res := elias_gamma_len_39(39)
+    if res != 11: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-elias-gamma-len-stage-39!")

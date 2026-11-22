@@ -1,0 +1,11 @@
+// cl-dsp-wave-square-bipolar: Test Suite
+import "../sq_bip.zk"
+
+fn test_sq():
+    if wave_square_bipolar(0.2, 0.5) != 1.0: sys_exit(1)
+    if wave_square_bipolar(0.7, 0.5) != (0.0 - 1.0): sys_exit(1)
+    print("test_sq passed")
+
+fn main():
+    test_sq()
+    print("✓ All tests passed for cl-dsp-wave-square-bipolar!")

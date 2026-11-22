@@ -1,0 +1,13 @@
+// cl-ease-smootherstep-5: Test Suite
+import "../e_ss5.zk"
+
+fn test_e_ss5():
+    res := ease_smootherstep(0.5)
+    diff := res - 0.5
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_e_ss5 passed")
+
+fn main():
+    test_e_ss5()
+    print("✓ All tests passed for cl-ease-smootherstep-5!")

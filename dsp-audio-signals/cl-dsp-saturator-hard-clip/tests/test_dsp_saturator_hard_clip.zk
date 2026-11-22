@@ -1,0 +1,12 @@
+// cl-dsp-saturator-hard-clip: Test Suite
+import "../hard_clip.zk"
+
+fn test_hc():
+    if saturate_hard_clip(5.0, 1.0) != 1.0: sys_exit(1)
+    if saturate_hard_clip(-5.0, 1.0) != (0.0 - 1.0): sys_exit(1)
+    if saturate_hard_clip(0.5, 1.0) != 0.5: sys_exit(1)
+    print("test_hc passed")
+
+fn main():
+    test_hc()
+    print("✓ All tests passed for cl-dsp-saturator-hard-clip!")

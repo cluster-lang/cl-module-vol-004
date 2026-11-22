@@ -1,0 +1,6 @@
+// cl-econ-hhi-component-stage-51: HHI Market Concentration Component Stage 51
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn hhi_share_sq_51(pct_share: float) -> float:
+    return pct_share * pct_share * 51.0

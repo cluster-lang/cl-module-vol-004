@@ -1,0 +1,13 @@
+// cl-dsp-tremolo-lfo-mod: Test Suite
+import "../dsp_trem.zk"
+
+fn test_run():
+    res := dsp_tremolo_mod(1.0, 0.5, 0.5)
+    diff := res - 0.7500
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-dsp-tremolo-lfo-mod!")

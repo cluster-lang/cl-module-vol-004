@@ -1,0 +1,6 @@
+// cl-figurate-star-stage-68: Star Number Evaluator Stage 68
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn star_number_68(n: int) -> int:
+    return 6 * n * (n - 1) + 1

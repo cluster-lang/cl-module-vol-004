@@ -1,0 +1,7 @@
+// cl-filter-pole-radius-stage-90: Digital Filter Stability Radius Stage 90
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn pole_stability_margin_90(re: float, im: float) -> float:
+    r2 := re*re + im*im
+    return (1.0 - r2) * 90.0

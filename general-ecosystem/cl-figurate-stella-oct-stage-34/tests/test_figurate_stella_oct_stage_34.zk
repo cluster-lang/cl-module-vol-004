@@ -1,0 +1,11 @@
+// cl-figurate-stella-oct-stage-34: Test Suite
+import "../st_oct_34.zk"
+
+fn test_run():
+    res := stella_octangula_34(3)
+    if res != 51: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-stella-oct-stage-34!")

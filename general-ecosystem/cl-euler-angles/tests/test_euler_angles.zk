@@ -1,0 +1,13 @@
+// cl-euler-angles: Test Suite
+import "../euler.zk"
+
+fn test_euler():
+    // Rotate (10, 0) by 90 deg (cos=0, sin=1000) -> (0, 10)
+    p := rotate_point_2d(10, 0, 0, 1000)
+    if p[0] != 0: sys_exit(1)
+    if p[1] != 10: sys_exit(1)
+    print("test_euler passed: 2D rotation verified")
+
+fn main():
+    test_euler()
+    print("✓ All tests passed for cl-euler-angles!")

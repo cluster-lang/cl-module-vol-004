@@ -1,0 +1,8 @@
+// cl-dsp-soft-sat-rational-stage-78: Rational Waveshaper Soft Saturator Stage 78
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rational_sat_78(x: float) -> float:
+    ax := x
+    if ax < 0.0: ax = 0.0 - ax
+    return (x / (1.0 + ax)) * 78.0

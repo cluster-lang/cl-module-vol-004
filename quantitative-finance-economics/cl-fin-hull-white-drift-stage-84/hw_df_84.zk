@@ -1,0 +1,6 @@
+// cl-fin-hull-white-drift-stage-84: Hull-White Short Rate Drift Stage 84
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn hull_white_drift_84(theta_t: float, a_param: float, r_curr: float) -> float:
+    return (theta_t - a_param * r_curr) * 84.0

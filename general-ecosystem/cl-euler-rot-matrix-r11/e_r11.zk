@@ -1,0 +1,6 @@
+// cl-euler-rot-matrix-r11: Euler ZYX Matrix Element R11 (cosY*cosP)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn euler_r11(cy: float, cp: float) -> float:
+    return cy * cp

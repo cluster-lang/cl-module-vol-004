@@ -1,0 +1,6 @@
+// cl-fea-torsional-rigidity-stage-21: Shaft Circular Torsional Rigidity Constant Stage 21
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn torsion_rigidity_21(g: float, j: float, l: float) -> float:
+    return (g * j / l) * 21.0

@@ -1,0 +1,6 @@
+// cl-dsp-tremolo-mod-stage-52: Tremolo Amplitude LFO Modulation Stage 52
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tremolo_mod_52(audio_in: float, lfo_val: float) -> float:
+    return audio_in * (1.0 - 0.2600 * lfo_val)

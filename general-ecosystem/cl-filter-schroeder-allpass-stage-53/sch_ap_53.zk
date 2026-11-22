@@ -1,0 +1,6 @@
+// cl-filter-schroeder-allpass-stage-53: Schroeder All-Pass Reverb Stage 53
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn schroeder_allpass_53(input_val: float, delayed_val: float, g: float) -> float:
+    return (0.0 - g * input_val + delayed_val) * 53.0

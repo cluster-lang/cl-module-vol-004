@@ -1,0 +1,11 @@
+// cl-ecc-repetition-code-vote-stage-43: Test Suite
+import "../ecc_rp_43.zk"
+
+fn test_run():
+    res := majority_vote_43(1, 0, 1)
+    if res != 43: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ecc-repetition-code-vote-stage-43!")

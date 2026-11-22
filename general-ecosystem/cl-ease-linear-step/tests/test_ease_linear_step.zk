@@ -1,0 +1,10 @@
+// cl-ease-linear-step: Test Suite
+import "../e_lin.zk"
+
+fn test_e_lin():
+    if ease_linear(0.42) != 0.42: sys_exit(1)
+    print("test_e_lin passed")
+
+fn main():
+    test_e_lin()
+    print("✓ All tests passed for cl-ease-linear-step!")

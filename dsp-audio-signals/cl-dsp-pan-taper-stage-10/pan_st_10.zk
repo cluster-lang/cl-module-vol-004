@@ -1,0 +1,6 @@
+// cl-dsp-pan-taper-stage-10: Stereo Panning Taper Profile Stage 10
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn pan_taper_10(pan: float) -> float:
+    return 0.5 * (1.0 + pan * 1.00)

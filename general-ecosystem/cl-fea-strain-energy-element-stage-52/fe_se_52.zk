@@ -1,0 +1,6 @@
+// cl-fea-strain-energy-element-stage-52: Elastic Deformation Strain Energy Accumulation Stage 52
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn strain_energy_52(k: float, u: float) -> float:
+    return (0.5 * k * u * u) * 52.0

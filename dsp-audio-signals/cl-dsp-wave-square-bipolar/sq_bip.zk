@@ -1,0 +1,10 @@
+// cl-dsp-wave-square-bipolar: DSP Bipolar Square Wave Generator [-1, 1]
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn wave_square_bipolar(phase: float, duty_cycle: float) -> float:
+    p := phase
+    while p >= 1.0: p = p - 1.0
+    while p < 0.0: p = p + 1.0
+    if p < duty_cycle: return 1.0
+    return 0.0 - 1.0

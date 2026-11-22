@@ -1,0 +1,6 @@
+// cl-fin-heston-drift-stage-17: Heston Variance Mean-Reversion Drift Stage 17
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn heston_var_drift_17(kappa: float, theta: float, v_curr: float) -> float:
+    return kappa * (theta - v_curr) * 17.0

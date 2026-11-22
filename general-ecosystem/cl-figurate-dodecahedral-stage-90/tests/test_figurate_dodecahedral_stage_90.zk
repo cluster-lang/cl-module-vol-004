@@ -1,0 +1,11 @@
+// cl-figurate-dodecahedral-stage-90: Test Suite
+import "../dodec_n_90.zk"
+
+fn test_run():
+    res := dodecahedral_num_90(3)
+    if res != 84: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-dodecahedral-stage-90!")

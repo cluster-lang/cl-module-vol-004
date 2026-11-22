@@ -1,0 +1,6 @@
+// cl-dsp-ring-mod-product-stage-65: Ring Modulator Signal Multiplier Stage 65
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ring_mod_prod_65(audio_in: float, carrier: float) -> float:
+    return audio_in * carrier * 65.0

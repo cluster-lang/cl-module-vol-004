@@ -1,0 +1,7 @@
+// cl-dsp-peaking-eq-stage-12: Biquad Peaking EQ Stage 12
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn peaking_eq_gain_12(linear_in: float) -> float:
+    factor := 1.0 + 12.00 * 0.05
+    return linear_in * factor

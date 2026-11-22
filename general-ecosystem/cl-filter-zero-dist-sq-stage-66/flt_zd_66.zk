@@ -1,0 +1,8 @@
+// cl-filter-zero-dist-sq-stage-66: Complex Zero Euclidean Distance Squared Stage 66
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn filter_zero_dist_sq_66(re_z: float, im_z: float, re_0: float, im_0: float) -> float:
+    dr := re_z - re_0
+    di := im_z - im_0
+    return (dr*dr + di*di) * 66.0

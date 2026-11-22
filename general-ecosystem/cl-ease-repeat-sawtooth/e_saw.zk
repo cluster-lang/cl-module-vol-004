@@ -1,0 +1,8 @@
+// cl-ease-repeat-sawtooth: Periodic Sawtooth Fraction Cycler
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ease_sawtooth(t: float) -> float:
+    frac := t - float(int(t))
+    if frac < 0.0: frac = frac + 1.0
+    return frac

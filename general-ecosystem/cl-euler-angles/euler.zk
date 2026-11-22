@@ -1,0 +1,10 @@
+// cl-euler-angles: Yaw-Pitch-Roll 2D Rotation Transformation
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// Fixed-point scaled by 1000. For angle theta=0, cos=1000, sin=0
+fn rotate_point_2d(px: int, py: int, cos_th: int, sin_th: int) -> vector[int]:
+    res: vector[int] := []
+    res.push(((px * cos_th) - (py * sin_th)) / 1000)
+    res.push(((px * sin_th) + (py * cos_th)) / 1000)
+    return res

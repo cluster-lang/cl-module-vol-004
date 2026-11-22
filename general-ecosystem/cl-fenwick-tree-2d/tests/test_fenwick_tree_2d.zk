@@ -1,0 +1,20 @@
+// cl-fenwick-tree-2d: Test Suite
+import "../fenwick2d.zk"
+
+fn test_bit2d():
+    max_n := 4
+    tree: vector[int] := []
+    total := (max_n + 1) * (max_n + 1)
+    i := 0
+    while i < total:
+        tree.push(0)
+        i = i + 1
+    fenwick2d_add(tree, max_n, 2, 3, 10)
+    fenwick2d_add(tree, max_n, 3, 3, 20)
+    q := fenwick2d_query(tree, max_n, 4, 4)
+    if q != 30: sys_exit(1)
+    print("test_bit2d passed: 2D prefix sum verified")
+
+fn main():
+    test_bit2d()
+    print("✓ All tests passed for cl-fenwick-tree-2d!")

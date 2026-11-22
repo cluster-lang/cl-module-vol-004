@@ -1,0 +1,11 @@
+// cl-ecc-bch-syndrome-stage-48: Test Suite
+import "../ecc_bc_48.zk"
+
+fn test_run():
+    res := bch_syndrome_48(1, 0, 1)
+    if res != 48: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ecc-bch-syndrome-stage-48!")

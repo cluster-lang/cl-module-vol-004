@@ -1,0 +1,6 @@
+// cl-fin-gbm-drift-stage-95: GBM Asset Drift Increment Stage 95
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn gbm_drift_95(s: float, dt: float) -> float:
+    return s * 0.1450 * dt

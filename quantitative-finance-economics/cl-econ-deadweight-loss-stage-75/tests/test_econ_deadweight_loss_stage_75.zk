@@ -1,0 +1,13 @@
+// cl-econ-deadweight-loss-stage-75: Test Suite
+import "../dw_lss_75.zk"
+
+fn test_run():
+    res := deadweight_loss_75(10.0, 20.0)
+    diff := res - 7500.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-econ-deadweight-loss-stage-75!")

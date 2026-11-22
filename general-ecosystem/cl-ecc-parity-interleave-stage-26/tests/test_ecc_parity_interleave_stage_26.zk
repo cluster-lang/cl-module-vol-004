@@ -1,0 +1,11 @@
+// cl-ecc-parity-interleave-stage-26: Test Suite
+import "../ecc_bl_26.zk"
+
+fn test_run():
+    res := block_parity_26(45, 78)
+    if res != 125: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ecc-parity-interleave-stage-26!")

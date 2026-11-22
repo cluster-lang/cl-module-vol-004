@@ -1,0 +1,6 @@
+// cl-encoding-leb128-byte0-stage-96: LEB128 Continuation Byte 0 Stage 96
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn leb128_byte0_96(x: int) -> int:
+    return (x & 127) | 128

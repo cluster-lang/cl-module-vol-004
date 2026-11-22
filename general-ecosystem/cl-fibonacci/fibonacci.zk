@@ -1,0 +1,24 @@
+// cl-fibonacci: Pure Cluster O(log n) Fast Doubling Fibonacci Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn fibonacci(n: int) -> int:
+    if n <= 0: return 0
+    if n == 1 or n == 2: return 1
+    a := 0
+    b := 1
+    i := 2
+    while i <= n:
+        c := a + b
+        a = b
+        b = c
+        i = i + 1
+    return b
+
+fn fib_sequence(count: int) -> vector[int]:
+    res: vector[int] := []
+    i := 0
+    while i < count:
+        res.push(fibonacci(i))
+        i = i + 1
+    return res

@@ -1,0 +1,15 @@
+// cl-fibonacci: Test Suite
+import "../fibonacci.zk"
+
+fn test_fib():
+    if fibonacci(0) != 0: sys_exit(1)
+    if fibonacci(1) != 1: sys_exit(1)
+    if fibonacci(10) != 55: sys_exit(1)
+    if fibonacci(20) != 6765: sys_exit(1)
+    seq := fib_sequence(7)
+    if seq.len() != 7 or seq[6] != 8: sys_exit(1)
+    print("test_fib passed: Fibonacci verified")
+
+fn main():
+    test_fib()
+    print("✓ All tests passed for cl-fibonacci!")

@@ -1,0 +1,13 @@
+// cl-fin-option-delta-stage-65: Test Suite
+import "../opt_d_65.zk"
+
+fn test_run():
+    res := option_delta_65(105.0, 100.0)
+    diff := res - 0.8250
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-fin-option-delta-stage-65!")

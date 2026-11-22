@@ -1,0 +1,11 @@
+// cl-figurate-tetrahedral-stage-32: Test Suite
+import "../tetra_n_32.zk"
+
+fn test_run():
+    res := tetrahedral_num_32(3)
+    if res != 10: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-tetrahedral-stage-32!")

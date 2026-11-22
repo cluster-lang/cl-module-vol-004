@@ -1,0 +1,11 @@
+// cl-ease-ping-pong: Triangular Wave Ping-Pong Parameter Cycler
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ease_ping_pong(t: float) -> float:
+    // Oscillates between 0.0 and 1.0 over period 2.0
+    m := t - 2.0 * float(int(t * 0.5))
+    if m < 0.0: m = m + 2.0
+    if m <= 1.0:
+        return m
+    return 2.0 - m

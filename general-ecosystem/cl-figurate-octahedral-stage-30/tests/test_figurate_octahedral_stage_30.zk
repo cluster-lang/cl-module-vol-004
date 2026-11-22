@@ -1,0 +1,11 @@
+// cl-figurate-octahedral-stage-30: Test Suite
+import "../octah_n_30.zk"
+
+fn test_run():
+    res := octahedral_num_30(4)
+    if res != 44: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-octahedral-stage-30!")

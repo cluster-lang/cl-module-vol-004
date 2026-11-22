@@ -1,0 +1,13 @@
+// cl-ease-inout-cubic: Test Suite
+import "../e_io_c.zk"
+
+fn test_e_io_c():
+    res := ease_inout_cubic(0.5)
+    diff := res - 0.5
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_e_io_c passed")
+
+fn main():
+    test_e_io_c()
+    print("✓ All tests passed for cl-ease-inout-cubic!")

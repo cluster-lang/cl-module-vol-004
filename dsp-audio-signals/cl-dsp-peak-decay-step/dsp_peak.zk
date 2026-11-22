@@ -1,0 +1,11 @@
+// cl-dsp-peak-decay-step: Audio Peak Detector with Exponential Decay
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn dsp_peak_decay(peak_prev: float, sample: float, decay_factor: float) -> float:
+    s := sample
+    if s < 0.0: s = 0.0 - s
+    decayed := peak_prev * decay_factor
+    if s > decayed:
+        return s
+    return decayed

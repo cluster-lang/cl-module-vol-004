@@ -1,0 +1,13 @@
+// cl-fin-hull-white-drift-stage-96: Test Suite
+import "../hw_df_96.zk"
+
+fn test_run():
+    res := hull_white_drift_96(0.05, 0.1, 0.03)
+    diff := res - 4.5120
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-fin-hull-white-drift-stage-96!")

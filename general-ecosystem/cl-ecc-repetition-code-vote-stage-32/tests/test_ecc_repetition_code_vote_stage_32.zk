@@ -1,0 +1,11 @@
+// cl-ecc-repetition-code-vote-stage-32: Test Suite
+import "../ecc_rp_32.zk"
+
+fn test_run():
+    res := majority_vote_32(1, 0, 1)
+    if res != 32: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ecc-repetition-code-vote-stage-32!")

@@ -1,0 +1,163 @@
+// cl-fastapi: Modern High-Performance Web Routing & API Dispatcher (Python FastAPI Parity)
+// 100% Pure Cluster Language implementation
+
+model Route:
+    method: string
+    pattern: string
+    handler_id: int
+
+model FastApp:
+    title: string
+    version: string
+    routes: vector[Route]
+
+model RouteMatch:
+    found: bool
+    handler_id: int
+    param_keys: vector[string]
+    param_vals: vector[string]
+
+model Request:
+    method: string
+    path: string
+    param_keys: vector[string]
+    param_vals: vector[string]
+    query_keys: vector[string]
+    query_vals: vector[string]
+    body: string
+
+model Response:
+    status_code: int
+    content_type: string
+    body: string
+
+fn new_app(title: string, version: string) -> FastApp:
+    r: vector[Route] := []
+    app := FastApp(title, version, r)
+    return app
+
+fn add_route(&app: FastApp, method: string, pattern: string, handler_id: int):
+    m := str_to_lower(method)
+    route := Route(m, pattern, handler_id)
+    app.routes.push(route)
+
+fn split_by(s: string, delim: string) -> vector[string]:
+    res: vector[string] := []
+    part := ""
+    i := 0
+    n := s.len()
+    while i < n:
+        if substring(s, i, 1) == delim:
+            res.push(part)
+            part = ""
+        else:
+            part = part + substring(s, i, 1)
+        i = i + 1
+    res.push(part)
+    return res
+
+fn match_path(pattern: string, actual_path: string, &out_keys: vector[string], &out_vals: vector[string]) -> bool:
+    pat_segs := split_by(pattern, "/")
+    act_segs := split_by(actual_path, "/")
+    
+    if pat_segs.len() != act_segs.len():
+        return false
+        
+    i := 0
+    while i < pat_segs.len():
+        p := pat_segs[i]
+        a := act_segs[i]
+        
+        if p.len() >= 2 and substring(p, 0, 1) == "{" and substring(p, p.len() - 1, 1) == "}":
+            // Path parameter placeholder: {name}
+            p_name := substring(p, 1, p.len() - 2)
+            out_keys.push(p_name)
+            out_vals.push(a)
+        elif p != a:
+            return false
+        i = i + 1
+    return true
+
+fn match_route(app: FastApp, method: string, path: string) -> RouteMatch:
+    target_method := str_to_lower(method)
+    empty_k: vector[string] := []
+    empty_v: vector[string] := []
+    
+    for _, r in app.routes:
+        if r.method == target_method:
+            pk: vector[string] := []
+            pv: vector[string] := []
+            if match_path(r.pattern, path, pk, pv):
+                m := RouteMatch(true, r.handler_id, pk, pv)
+                return m
+    
+    nomatch := RouteMatch(false, -1, empty_k, empty_v)
+    return nomatch
+
+fn parse_query_params(raw_query: string, &keys: vector[string], &vals: vector[string]):
+    if raw_query.len() == 0:
+        return
+    pairs := split_by(raw_query, "&")
+    for _, pair in pairs:
+        kv := split_by(pair, "=")
+        if kv.len() == 2:
+            keys.push(kv[0])
+            vals.push(kv[1])
+        elif kv.len() == 1 and kv[0].len() > 0:
+            keys.push(kv[0])
+            vals.push("")
+
+fn build_request(method: string, full_url: string, body: string) -> Request:
+    // Split URL into path and query
+    path := full_url
+    raw_query := ""
+    
+    i := 0
+    while i < full_url.len():
+        if substring(full_url, i, 1) == "?":
+            path = substring(full_url, 0, i)
+            raw_query = substring(full_url, i + 1, full_url.len() - i - 1)
+            break
+        i = i + 1
+        
+    pk: vector[string] := []
+    pv: vector[string] := []
+    qk: vector[string] := []
+    qv: vector[string] := []
+    
+    parse_query_params(raw_query, qk, qv)
+    
+    req := Request(method, path, pk, pv, qk, qv, body)
+    return req
+
+fn get_param(req: Request, key: string) -> string:
+    i := 0
+    while i < req.param_keys.len():
+        if req.param_keys[i] == key:
+            return req.param_vals[i]
+        i = i + 1
+    return ""
+
+fn get_query(req: Request, key: string) -> string:
+    i := 0
+    while i < req.query_keys.len():
+        if req.query_keys[i] == key:
+            return req.query_vals[i]
+        i = i + 1
+    return ""
+
+// ----------------------------------------------------------------------------
+// Response Builders
+// ----------------------------------------------------------------------------
+
+fn json_response(status_code: int, json_payload: string) -> Response:
+    resp := Response(status_code, "application/json", json_payload)
+    return resp
+
+fn text_response(status_code: int, text_payload: string) -> Response:
+    resp := Response(status_code, "text/plain", text_payload)
+    return resp
+
+fn not_found() -> Response:
+    resp := Response(404, "application/json", "{\"detail\":\"Not Found\"}")
+    return resp

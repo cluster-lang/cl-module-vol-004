@@ -1,0 +1,9 @@
+// cl-dsp-window-hann-approx: Hann Window Cosine Approximation
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn window_hann_approx(n: int, total_n: int) -> float:
+    if total_n <= 1: return 1.0
+    // 0.5 * (1 - cos(2*pi*n / (N-1))) approx near midpoint -> 1.0
+    x := float(n) / float(total_n - 1)
+    return 4.0 * x * (1.0 - x)

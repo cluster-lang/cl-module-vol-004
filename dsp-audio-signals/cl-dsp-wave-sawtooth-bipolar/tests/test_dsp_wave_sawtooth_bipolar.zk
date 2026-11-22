@@ -1,0 +1,13 @@
+// cl-dsp-wave-sawtooth-bipolar: Test Suite
+import "../saw_bip.zk"
+
+fn test_saw():
+    res0 := wave_sawtooth_bipolar(0.0) // -1.0
+    res5 := wave_sawtooth_bipolar(0.5) // 0.0
+    if res0 != (0.0 - 1.0): sys_exit(1)
+    if res5 != 0.0: sys_exit(1)
+    print("test_saw passed")
+
+fn main():
+    test_saw()
+    print("✓ All tests passed for cl-dsp-wave-sawtooth-bipolar!")

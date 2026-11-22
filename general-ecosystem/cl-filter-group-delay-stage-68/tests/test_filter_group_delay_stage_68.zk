@@ -1,0 +1,13 @@
+// cl-filter-group-delay-stage-68: Test Suite
+import "../grp_dl_68.zk"
+
+fn test_run():
+    res := group_delay_approx_68(-0.5, 0.1)
+    diff := res - 340.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-filter-group-delay-stage-68!")

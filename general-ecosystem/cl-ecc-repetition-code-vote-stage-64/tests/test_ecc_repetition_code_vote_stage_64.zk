@@ -1,0 +1,11 @@
+// cl-ecc-repetition-code-vote-stage-64: Test Suite
+import "../ecc_rp_64.zk"
+
+fn test_run():
+    res := majority_vote_64(1, 0, 1)
+    if res != 64: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ecc-repetition-code-vote-stage-64!")

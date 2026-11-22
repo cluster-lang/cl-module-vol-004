@@ -1,0 +1,6 @@
+// cl-dsp-power-spectral-density-stage-31: Power Spectral Density Bin Stage 31
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn psd_bin_31(re: float, im: float, n: float) -> float:
+    return ((re * re + im * im) / n) * 31.0

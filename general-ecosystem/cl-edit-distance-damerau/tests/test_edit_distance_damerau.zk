@@ -1,0 +1,12 @@
+// cl-edit-distance-damerau: Test Suite
+import "../damerau_matrix.zk"
+
+fn test_damerau():
+    if damerau_matrix("ca", "ac") != 1: sys_exit(1) // Transposition
+    if damerau_matrix("tehs", "the") != 2: sys_exit(1)
+    if damerau_matrix("cluster", "cluster") != 0: sys_exit(1)
+    print("test_damerau passed: Damerau matrix with transpositions verified")
+
+fn main():
+    test_damerau()
+    print("✓ All tests passed for cl-edit-distance-damerau!")

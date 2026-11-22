@@ -1,0 +1,6 @@
+// cl-econ-game-payoff-stage-37: Game Theory Expected Payoff Stage 37
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn game_payoff_37(p: float, payoff_a: float, payoff_b: float) -> float:
+    return (p * payoff_a + (1.0 - p) * payoff_b) * 37.0

@@ -1,0 +1,9 @@
+// cl-dsp-window-welch: Welch Parabolic Window Function
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn window_welch(n: int, total_n: int) -> float:
+    if total_n <= 1: return 1.0
+    half := float(total_n - 1) * 0.5
+    norm := (float(n) - half) / half
+    return 1.0 - norm * norm

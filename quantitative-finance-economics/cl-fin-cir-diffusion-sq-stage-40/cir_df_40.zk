@@ -1,0 +1,6 @@
+// cl-fin-cir-diffusion-sq-stage-40: CIR Short Rate Diffusion Squared Stage 40
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn cir_diffusion_sq_40(sigma: float, r_rate: float) -> float:
+    return sigma * sigma * r_rate * 40.0

@@ -1,0 +1,6 @@
+// cl-econ-capm-return-stage-24: CAPM Expected Equity Return Stage 24
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn capm_return_24(rf: float, rm: float) -> float:
+    return rf + 0.7400 * (rm - rf)

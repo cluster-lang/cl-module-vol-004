@@ -1,0 +1,6 @@
+// cl-filter-schroeder-allpass-stage-77: Schroeder All-Pass Reverb Stage 77
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn schroeder_allpass_77(input_val: float, delayed_val: float, g: float) -> float:
+    return (0.0 - g * input_val + delayed_val) * 77.0

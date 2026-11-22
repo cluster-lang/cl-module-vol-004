@@ -1,0 +1,13 @@
+// cl-econ-deadweight-loss-stage-19: Test Suite
+import "../dw_lss_19.zk"
+
+fn test_run():
+    res := deadweight_loss_19(10.0, 20.0)
+    diff := res - 1900.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-econ-deadweight-loss-stage-19!")

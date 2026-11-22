@@ -1,0 +1,6 @@
+// cl-econ-deadweight-loss-stage-46: Deadweight Loss Harberger Triangle Stage 46
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn deadweight_loss_46(delta_p: float, delta_q: float) -> float:
+    return 0.5 * delta_p * delta_q * 46.0

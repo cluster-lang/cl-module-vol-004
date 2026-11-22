@@ -1,0 +1,13 @@
+// cl-fin-modified-duration-stage-70: Test Suite
+import "../mod_dur_70.zk"
+
+fn test_run():
+    res := modified_duration_70(5.0)
+    diff := res - 4.9505
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-fin-modified-duration-stage-70!")

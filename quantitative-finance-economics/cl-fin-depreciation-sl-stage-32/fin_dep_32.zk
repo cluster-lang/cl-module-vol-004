@@ -1,0 +1,6 @@
+// cl-fin-depreciation-sl-stage-32: Straight-Line Depreciation Rate Stage 32
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn straight_line_depr_32(cost: float, salvage: float) -> float:
+    return (cost - salvage) / 37.0

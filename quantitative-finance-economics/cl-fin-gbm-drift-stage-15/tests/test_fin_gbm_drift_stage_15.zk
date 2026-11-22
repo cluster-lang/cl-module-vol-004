@@ -1,0 +1,13 @@
+// cl-fin-gbm-drift-stage-15: Test Suite
+import "../gbm_d_15.zk"
+
+fn test_run():
+    res := gbm_drift_15(100.0, 0.1)
+    diff := res - 0.6500
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-fin-gbm-drift-stage-15!")

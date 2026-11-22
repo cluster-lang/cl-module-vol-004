@@ -1,0 +1,11 @@
+// cl-ease-ping-pong: Test Suite
+import "../e_pp.zk"
+
+fn test_e_pp():
+    if ease_ping_pong(0.5) != 0.5: sys_exit(1)
+    if ease_ping_pong(1.5) != 0.5: sys_exit(1)
+    print("test_e_pp passed")
+
+fn main():
+    test_e_pp()
+    print("✓ All tests passed for cl-ease-ping-pong!")

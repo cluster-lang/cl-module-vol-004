@@ -1,0 +1,6 @@
+// cl-dsp-svf-lowpass-stage-6: State Variable Filter Lowpass Pole Stage 6
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn svf_lowpass_6(low: float, band: float, f_coeff: float) -> float:
+    return low + f_coeff * band * 6.0

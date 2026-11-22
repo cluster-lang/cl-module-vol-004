@@ -1,0 +1,11 @@
+// cl-figurate-dodecahedral-stage-14: Test Suite
+import "../dodec_n_14.zk"
+
+fn test_run():
+    res := dodecahedral_num_14(7)
+    if res != 1330: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-dodecahedral-stage-14!")

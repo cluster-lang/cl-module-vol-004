@@ -1,0 +1,10 @@
+// cl-ease-inout-quart Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-ease-inout-quart"
+version := "1.0.0"
+description := "Piecewise Quartic In-Out S-curve"
+main := "e_io_q4.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

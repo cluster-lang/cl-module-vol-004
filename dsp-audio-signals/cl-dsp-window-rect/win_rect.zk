@@ -1,0 +1,7 @@
+// cl-dsp-window-rect: Rectangular Window Function (Unit Box)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn window_rect(n: int, total_n: int) -> float:
+    if n >= 0 and n < total_n: return 1.0
+    return 0.0

@@ -1,0 +1,23 @@
+// cl-event-emitter: Pure Cluster Event Dispatcher
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+model EventEmitter:
+    event_counts: vector[int]
+
+fn ee_new(max_events: int) -> EventEmitter:
+    c: vector[int] := []
+    i := 0
+    while i < max_events:
+        c.push(0)
+        i = i + 1
+    return EventEmitter(c)
+
+fn ee_emit(ee: EventEmitter, event_id: int):
+    if event_id >= 0 and event_id < ee.event_counts.len():
+        ee.event_counts[event_id] = ee.event_counts[event_id] + 1
+
+fn ee_count(ee: EventEmitter, event_id: int) -> int:
+    if event_id >= 0 and event_id < ee.event_counts.len():
+        return ee.event_counts[event_id]
+    return 0

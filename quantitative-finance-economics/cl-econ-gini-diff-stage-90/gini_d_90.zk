@@ -1,0 +1,8 @@
+// cl-econ-gini-diff-stage-90: Gini Absolute Wealth Difference Stage 90
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn gini_diff_90(x: float, y: float) -> float:
+    d := x - y
+    if d < 0.0: d = 0.0 - d
+    return d * 90.0

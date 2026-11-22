@@ -1,0 +1,13 @@
+// cl-dsp-phase-accumulator-step: DSP Phase Accumulator with [0, 1) Wrapping
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn phase_accumulate(phase: float, freq: float, sample_rate: float) -> float:
+    if sample_rate <= 0.0: return phase
+    inc := freq / sample_rate
+    next_phase := phase + inc
+    while next_phase >= 1.0:
+        next_phase = next_phase - 1.0
+    while next_phase < 0.0:
+        next_phase = next_phase + 1.0
+    return next_phase

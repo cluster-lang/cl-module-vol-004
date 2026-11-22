@@ -1,0 +1,12 @@
+// cl-ease-clamp-unit: Test Suite
+import "../e_clamp.zk"
+
+fn test_e_clamp():
+    if ease_clamp(-0.2) != 0.0: sys_exit(1)
+    if ease_clamp(1.5) != 1.0: sys_exit(1)
+    if ease_clamp(0.6) != 0.6: sys_exit(1)
+    print("test_e_clamp passed")
+
+fn main():
+    test_e_clamp()
+    print("✓ All tests passed for cl-ease-clamp-unit!")

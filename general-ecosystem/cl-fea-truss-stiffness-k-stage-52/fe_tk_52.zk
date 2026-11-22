@@ -1,0 +1,6 @@
+// cl-fea-truss-stiffness-k-stage-52: 1D Axial Truss Element Elastic Stiffness Stage 52
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn truss_k_52(e: float, a: float, l: float) -> float:
+    return (e * a / l) * 52.0

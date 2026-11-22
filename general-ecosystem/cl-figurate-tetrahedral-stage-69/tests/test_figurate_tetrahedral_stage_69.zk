@@ -1,0 +1,11 @@
+// cl-figurate-tetrahedral-stage-69: Test Suite
+import "../tetra_n_69.zk"
+
+fn test_run():
+    res := tetrahedral_num_69(10)
+    if res != 220: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-tetrahedral-stage-69!")

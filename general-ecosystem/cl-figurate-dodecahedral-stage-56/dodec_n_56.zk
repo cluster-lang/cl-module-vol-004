@@ -1,0 +1,6 @@
+// cl-figurate-dodecahedral-stage-56: Dodecahedral Figurate Number Stage 56
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn dodecahedral_num_56(n: int) -> int:
+    return (n * (3 * n - 1) * (3 * n - 2)) / 2

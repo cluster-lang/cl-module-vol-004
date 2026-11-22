@@ -1,0 +1,6 @@
+// cl-fin-cir-diffusion-sq-stage-53: CIR Short Rate Diffusion Squared Stage 53
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn cir_diffusion_sq_53(sigma: float, r_rate: float) -> float:
+    return sigma * sigma * r_rate * 53.0

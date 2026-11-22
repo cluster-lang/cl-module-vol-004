@@ -1,0 +1,6 @@
+// cl-ecc-hamming-8-4-extended-stage-85: Extended Hamming Parity Bit Stage 85
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn hamming_parity_85(w: int) -> int:
+    return ((w ^ (w >> 1) ^ (w >> 2) ^ (w >> 3)) & 1) + 85

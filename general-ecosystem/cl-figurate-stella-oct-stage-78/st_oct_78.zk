@@ -1,0 +1,6 @@
+// cl-figurate-stella-oct-stage-78: Stella Octangula Number Stage 78
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stella_octangula_78(n: int) -> int:
+    return n * (2 * n * n - 1)

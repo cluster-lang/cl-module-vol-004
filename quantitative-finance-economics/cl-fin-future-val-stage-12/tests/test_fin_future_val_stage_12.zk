@@ -1,0 +1,13 @@
+// cl-fin-future-val-stage-12: Test Suite
+import "../fin_fv_12.zk"
+
+fn test_run():
+    res := future_val_stage_12(1000.0)
+    diff := res - 1120.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-fin-future-val-stage-12!")

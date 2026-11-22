@@ -1,0 +1,6 @@
+// cl-fin-ema-weight-stage-40: Exponential Moving Average Smoothing Stage 40
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ema_step_40(curr: float, prev_ema: float) -> float:
+    return 0.8000 * curr + (1.0 - 0.8000) * prev_ema

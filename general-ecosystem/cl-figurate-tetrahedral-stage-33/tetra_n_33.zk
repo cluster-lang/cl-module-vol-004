@@ -1,0 +1,6 @@
+// cl-figurate-tetrahedral-stage-33: Tetrahedral Figurate Number Stage 33
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tetrahedral_num_33(n: int) -> int:
+    return (n * (n + 1) * (n + 2)) / 6

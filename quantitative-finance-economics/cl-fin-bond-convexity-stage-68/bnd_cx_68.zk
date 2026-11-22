@@ -1,0 +1,6 @@
+// cl-fin-bond-convexity-stage-68: Bond Cashflow Convexity Term Stage 68
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn bond_convexity_term_68(t_year: float, pv_cf: float) -> float:
+    return t_year * (t_year + 1.0) * pv_cf * 68.0

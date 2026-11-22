@@ -1,0 +1,11 @@
+// cl-figurate-octahedral-stage-4: Test Suite
+import "../octah_n_4.zk"
+
+fn test_run():
+    res := octahedral_num_4(5)
+    if res != 85: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-figurate-octahedral-stage-4!")

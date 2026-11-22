@@ -1,0 +1,7 @@
+// cl-dsp-pid-error-derivative: Backward-Difference PID Derivative
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn pid_update_derivative(err: float, err_prev: float, dt: float) -> float:
+    if dt < 0.000001 and dt > (0.0 - 0.000001): return 0.0
+    return (err - err_prev) / dt

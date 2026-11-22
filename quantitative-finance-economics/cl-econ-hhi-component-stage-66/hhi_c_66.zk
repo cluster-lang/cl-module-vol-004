@@ -1,0 +1,6 @@
+// cl-econ-hhi-component-stage-66: HHI Market Concentration Component Stage 66
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn hhi_share_sq_66(pct_share: float) -> float:
+    return pct_share * pct_share * 66.0

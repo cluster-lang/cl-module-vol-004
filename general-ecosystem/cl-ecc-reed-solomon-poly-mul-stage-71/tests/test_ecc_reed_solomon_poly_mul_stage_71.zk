@@ -1,0 +1,11 @@
+// cl-ecc-reed-solomon-poly-mul-stage-71: Test Suite
+import "../ecc_rs_71.zk"
+
+fn test_run():
+    res := rs_xtime_71(142)
+    if res != 78: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ecc-reed-solomon-poly-mul-stage-71!")

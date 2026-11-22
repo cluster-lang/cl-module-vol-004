@@ -1,0 +1,12 @@
+// cl-elias-gamma-len-stage-12: Elias Gamma Encoded Bit Length Stage 12
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn elias_gamma_len_12(x: int) -> int:
+    if x <= 1: return 1
+    cnt := 0
+    t := x
+    while t > 0:
+        cnt = cnt + 1
+        t = t >> 1
+    return (cnt * 2) - 1

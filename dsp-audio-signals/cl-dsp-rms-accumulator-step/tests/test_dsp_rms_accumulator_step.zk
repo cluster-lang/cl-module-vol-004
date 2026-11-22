@@ -1,0 +1,14 @@
+// cl-dsp-rms-accumulator-step: Test Suite
+import "../dsp_rms.zk"
+
+fn test_dsp_rms():
+    res := dsp_rms_step(10.0, 3.0)
+    // 10 + 9 = 19.0
+    diff := res - 19.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_dsp_rms passed")
+
+fn main():
+    test_dsp_rms()
+    print("✓ All tests passed for cl-dsp-rms-accumulator-step!")

@@ -1,0 +1,6 @@
+// cl-econ-consumer-surplus-stage-39: Consumer Surplus Triangle Area Stage 39
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn consumer_surplus_39(p_max: float, p_market: float, q_market: float) -> float:
+    return 0.5 * (p_max - p_market) * q_market * 39.0

@@ -1,0 +1,10 @@
+// cl-ease-pulse-train: Periodic Duty-Cycle Pulse Waveform
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ease_pulse(t: float, duty_cycle: float) -> float:
+    frac := t - float(int(t))
+    if frac < 0.0: frac = frac + 1.0
+    if frac < duty_cycle:
+        return 1.0
+    return 0.0

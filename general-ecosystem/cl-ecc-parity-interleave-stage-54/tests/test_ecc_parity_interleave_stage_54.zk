@@ -1,0 +1,11 @@
+// cl-ecc-parity-interleave-stage-54: Test Suite
+import "../ecc_bl_54.zk"
+
+fn test_run():
+    res := block_parity_54(45, 78)
+    if res != 153: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ecc-parity-interleave-stage-54!")

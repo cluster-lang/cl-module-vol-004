@@ -1,0 +1,6 @@
+// cl-euler-rot-matrix-r22: Euler ZYX Matrix Element R22 (sinY*sinP*sinR + cosY*cosR)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn euler_r22(cy: float, sy: float, cp: float, sp: float, cr: float, sr: float) -> float:
+    return sy * sp * sr + cy * cr

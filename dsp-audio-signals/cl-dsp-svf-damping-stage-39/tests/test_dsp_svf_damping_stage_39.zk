@@ -1,0 +1,13 @@
+// cl-dsp-svf-damping-stage-39: Test Suite
+import "../svf_d_39.zk"
+
+fn test_run():
+    res := svf_damping_39(2.0)
+    diff := res - 0.4450
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-dsp-svf-damping-stage-39!")

@@ -1,0 +1,13 @@
+// cl-fea-torsional-rigidity-stage-94: Test Suite
+import "../fe_tr_94.zk"
+
+fn test_run():
+    res := torsion_rigidity_94(80.0, 0.002, 1.0)
+    diff := res - 15.0400
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-fea-torsional-rigidity-stage-94!")

@@ -1,0 +1,59 @@
+import fastapi
+
+fn main():
+    print("Testing cl-fastapi...")
+    
+    app := fastapi::new_app("Cluster Service", "1.0.0")
+    
+    // Register endpoints
+    fastapi::add_route(app, "GET", "/", 1)
+    fastapi::add_route(app, "GET", "/items/{item_id}", 2)
+    fastapi::add_route(app, "POST", "/items", 3)
+    fastapi::add_route(app, "GET", "/users/{user_id}/orders/{order_id}", 4)
+    
+    // 1. Root route
+    m1 := fastapi::match_route(app, "GET", "/")
+    assert m1.found == true, "root route not found"
+    assert m1.handler_id == 1, "root handler mismatch"
+    
+    // 2. Path parameter extraction
+    m2 := fastapi::match_route(app, "GET", "/items/99")
+    assert m2.found == true, "item route not found"
+    assert m2.handler_id == 2, "item handler mismatch"
+    assert m2.param_keys.len() == 1, "item param keys count mismatch"
+    assert m2.param_keys[0] == "item_id", "param key name mismatch"
+    assert m2.param_vals[0] == "99", "param val mismatch"
+    
+    // 3. Multi-parameter extraction
+    m4 := fastapi::match_route(app, "GET", "/users/alice/orders/8888")
+    assert m4.found == true, "multi-param route not found"
+    assert m4.handler_id == 4, "multi-param handler mismatch"
+    assert m4.param_keys.len() == 2, "multi-param count mismatch"
+    assert m4.param_keys[0] == "user_id", "param 0 key mismatch"
+    assert m4.param_vals[0] == "alice", "param 0 val mismatch"
+    assert m4.param_keys[1] == "order_id", "param 1 key mismatch"
+    assert m4.param_vals[1] == "8888", "param 1 val mismatch"
+    
+    // 4. Method distinction
+    m_post := fastapi::match_route(app, "POST", "/items")
+    assert m_post.found == true, "post route not found"
+    assert m_post.handler_id == 3, "post handler mismatch"
+    
+    m_get_items := fastapi::match_route(app, "GET", "/items")
+    assert m_get_items.found == false, "get /items should not match"
+    
+    // 5. Query string parsing
+    req := fastapi::build_request("GET", "/search?q=cluster&limit=25", "")
+    assert req.path == "/search", "req path mismatch"
+    assert fastapi::get_query(req, "q") == "cluster", "query q mismatch"
+    assert fastapi::get_query(req, "limit") == "25", "query limit mismatch"
+    
+    // 6. Response builders
+    res_json := fastapi::json_response(200, "{\"success\":true}")
+    assert res_json.status_code == 200, "status code mismatch"
+    assert res_json.content_type == "application/json", "content type mismatch"
+    
+    res_404 := fastapi::not_found()
+    assert res_404.status_code == 404, "404 code mismatch"
+    
+    print("ALL cl-fastapi tests passed successfully!")

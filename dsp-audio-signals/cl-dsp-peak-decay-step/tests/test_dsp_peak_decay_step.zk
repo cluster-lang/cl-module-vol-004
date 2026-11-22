@@ -1,0 +1,16 @@
+// cl-dsp-peak-decay-step: Test Suite
+import "../dsp_peak.zk"
+
+fn test_dsp_peak():
+    p1 := dsp_peak_decay(10.0, 5.0, 0.9) // decayed=9.0 > 5.0 -> 9.0
+    diff1 := p1 - 9.0
+    if diff1 < 0.0: diff1 = 0.0 - diff1
+    p2 := dsp_peak_decay(10.0, 15.0, 0.9) // 15.0 > 9.0 -> 15.0
+    diff2 := p2 - 15.0
+    if diff2 < 0.0: diff2 = 0.0 - diff2
+    if diff1 > 0.0001 or diff2 > 0.0001: sys_exit(1)
+    print("test_dsp_peak passed")
+
+fn main():
+    test_dsp_peak()
+    print("✓ All tests passed for cl-dsp-peak-decay-step!")

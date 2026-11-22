@@ -1,0 +1,14 @@
+// cl-dsp-pid-error-derivative: Test Suite
+import "../dsp_deriv.zk"
+
+fn test_dsp_deriv():
+    res := pid_update_derivative(4.0, 2.0, 0.5)
+    // (4 - 2) / 0.5 = 4.0
+    diff := res - 4.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_dsp_deriv passed")
+
+fn main():
+    test_dsp_deriv()
+    print("✓ All tests passed for cl-dsp-pid-error-derivative!")
